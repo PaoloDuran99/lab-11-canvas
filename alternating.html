@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+	<html>
+		<body onload="draw()">
+			<canvas id="sketch" width="1000" height="300">
+			</canvas>
+			<script>
+				function draw()
+				{
+					var sketch = document.getElementById('sketch');
+					var context = sketch.getContext("2d");
+					
+					var sX = 50
+					var cX = 150
+					for (var cnts = 1; cnts <= 10; cnts++)
+					{
+						if (cnts%2 === 1)
+						{
+							//draw square
+							console.log(cnts + " square");
+							context.fillStyle = "#00ff00"
+							context.fillRect(sX,50,50,50);
+							sX = sX + 150;
+						}
+						else
+						{
+							//draw circle
+							console.log(cnts + " circle");
+							context.fillStyle = "#0000ff"
+							context.beginPath();
+							context.arc(cX, 75, 25, 0, 2 * Math.PI, true);
+							context.closePath();
+							context.fill();
+							cX = cX + 150; 
+						}
+					}
+				}
+			</script>
+		</body>
+	</html>
